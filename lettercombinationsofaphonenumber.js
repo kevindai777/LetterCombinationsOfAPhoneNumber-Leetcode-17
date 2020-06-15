@@ -8,6 +8,10 @@ let nums = '23'
 let result = []
 let data = []
 
+if (digits.length == 0) {
+    return result
+}
+
 let map = {
     2: 'abc',
     3: 'def',
@@ -23,9 +27,9 @@ for (let i = 0; i < nums.length; i++) {
     data.push(map[nums[i]])
 }
 
-backtrack(data, result, 0, '', nums.length)
+backtrack(data, 0, '', nums.length)
 
-function backtrack(data, result, currentLevel, tempRes, endLevel) {
+function backtrack(data, currentLevel, tempRes, endLevel) {
     //If we have reached the length of the digits
     if (tempRes.length == endLevel) {
         result.push(tempRes)
@@ -36,7 +40,7 @@ function backtrack(data, result, currentLevel, tempRes, endLevel) {
         //Add letter to the temporary result and recursively call w/
         //second set of letters
         tempRes += data[currentLevel][i]
-        backtrack(data, result, currentLevel + 1, tempRes, endLevel)
+        backtrack(data, currentLevel + 1, tempRes, endLevel)
 
         //Remove the second character and permute again
         tempRes = tempRes.slice(0, tempRes.length - 1)

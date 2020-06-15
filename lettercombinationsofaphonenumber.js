@@ -47,4 +47,4 @@ function backtrack(data, currentLevel, tempRes, endLevel) {
     }
 }
 
-console.log(result)
+return result

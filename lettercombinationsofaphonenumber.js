@@ -3,7 +3,8 @@
 let nums = '23'
 
 
-//O(3^N * 4^M) solution
+//O(3^N * 4^M) solution where N represents the digits with 3 characters and M represents the digits with 4 characters.
+//It is exponential since we recurse through all possible combinations.
 
 let result = []
 let data = []
@@ -30,7 +31,7 @@ for (let i = 0; i < nums.length; i++) {
 backtrack(data, 0, '', nums.length)
 
 function backtrack(data, currentLevel, tempRes, endLevel) {
-    //If we have reached the length of the digits
+    //If we have reached the length of the digits...
     if (tempRes.length == endLevel) {
         result.push(tempRes)
         return
